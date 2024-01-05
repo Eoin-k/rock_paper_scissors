@@ -93,3 +93,11 @@ font-weight: var(--btn-font-weight);
     background-color: var(--base);
     font-weight: var(--btn-font-weight);
 }
+
+.results-block {
+    width: 80%;
+    align-items: center;
+    display:flex;
+    gap: 1.5rem;
+    line-height: 1.4;
+}

@@ -1,7 +1,9 @@
-
 let playerWins = 0;
 let computerWins = 0;
 let count = 0;
+let roundCount = document.createElement('h4');
+let h1 = document.querySelector('h1')
+h1.appendChild(roundCount);
 let button = document.querySelectorAll('.btn');
 for(var i = 0; i< button.length; i++){
     button[i].addEventListener('click', function(e){
@@ -47,21 +49,12 @@ for(var i = 0; i< button.length; i++){
         
     }
     if (playerSelection === computerSelection){
-    if (count != 0){
-        count--
+        count ++
         let result = `${computerSelection} and ${playerSelection} cancel each other out, we will replay this round`;
         let printResult = document.createElement('p');
         printResult.textContent = result;
         resultdiv.appendChild(printResult);
         return
-        
-    } if(count==0) {
-        let result = `${computerSelection} and ${playerSelection} cancel each other out, we will replay this round`;
-        let printResult = document.createElement('p');
-        printResult.textContent = result;
-        resultdiv.appendChild(printResult);
-        return
-    }
         
     }
     else {
@@ -73,7 +66,6 @@ for(var i = 0; i< button.length; i++){
         resultdiv.appendChild(printResult);
         return
     }
-    
  }
 
  function game(){
@@ -90,21 +82,28 @@ for(var i = 0; i< button.length; i++){
        computerWinCount.textContent = `${computerWins} + ${computerSelection}`
        computerwins.appendChild(computerWinCount)
 
+       roundCount.textContent = `Total Rounds played - ${count}`;
+
  if(playerWins == 3 ){
     let printResult = document.createElement('p');
         printResult.textContent = 'Game is Over, You have beaten the computer';
         resultdiv.appendChild(printResult);
-       document.getElementById('buttons').style.display = "none";
+       let buttons = document.querySelectorAll('button');
+       buttons.forEach((button) => {
+       button.style.display = "none";
+ })
 }
 
 if(computerWins == 3){
     let printResult = document.createElement('p');
         printResult.textContent = 'Game is Over, the computer has won this game, You are going to have to try harder';
         resultdiv.appendChild(printResult);
-     document.getElementById('buttons').style.display = "none";
+        let buttons = document.querySelectorAll('button');
+       buttons.forEach((button) => {
+       button.style.display = "none";
+ })
 }
-       }
-       
+       }      
 
 
 
