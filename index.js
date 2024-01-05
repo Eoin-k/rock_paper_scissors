@@ -1,44 +1,66 @@
-let playerSelection = 'rock';
-const computerSelection = getComputerChoice();
+
 let playerWins = 0;
 let computerWins = 0;
 let count = 0;
- 
+let button = document.querySelectorAll('.btn');
+for(var i = 0; i< button.length; i++){
+    button[i].addEventListener('click', function(e){
+        playerSelection = e.target.value;
+        game();
+    })
+}
+
  function getComputerChoice() {
    let choices = ["rock","paper","scissors"];
    let randomChoice = Math.floor(Math.random() * 3);
    return choices[randomChoice];
-    
  }
 
  function playRound(playerSelection, computerSelection) {
-    computerSelection = getComputerChoice();
+     
     if (playerSelection === "rock" && computerSelection === "paper"){
         computerWins++
         count++
         let result = `You Lose ${computerSelection} beats ${playerSelection}`;
-        return result;
+        let printResult = document.createElement('p');
+         printResult.textContent = result;
+         resultdiv.appendChild(printResult);
+        return
     }
     if (playerSelection === "paper" && computerSelection === "scissors"){
         computerWins++
         count++
         let result = `You Lose ${computerSelection} beats ${playerSelection}`;
-        return result;
+        let printResult = document.createElement('p');
+        printResult.textContent = result;
+        resultdiv.appendChild(printResult);
+        return
     }
     if (playerSelection === "scissors" && computerSelection === "rock"){
         computerWins++
         count++
         let result = `You Lose ${computerSelection} beats ${playerSelection}`;
-        return 
+        let printResult = document.createElement('p');
+        printResult.textContent = result;
+        resultdiv.appendChild(printResult);
+        return
+        
     }
     if (playerSelection === computerSelection){
     if (count != 0){
         count--
-        let result = `Its a draw ${computerSelection} and ${playerSelection} cancel each other out, we will replay this round`;
-        return result;
-    } else {
-        let result = `Its a draw ${computerSelection} and ${playerSelection} cancel each other out, we will replay this round`;
-        return result;
+        let result = `${computerSelection} and ${playerSelection} cancel each other out, we will replay this round`;
+        let printResult = document.createElement('p');
+        printResult.textContent = result;
+        resultdiv.appendChild(printResult);
+        return
+        
+    } if(count==0) {
+        let result = `${computerSelection} and ${playerSelection} cancel each other out, we will replay this round`;
+        let printResult = document.createElement('p');
+        printResult.textContent = result;
+        resultdiv.appendChild(printResult);
+        return
     }
         
     }
@@ -46,30 +68,47 @@ let count = 0;
         playerWins++;
         count++
         let result = `You win ${playerSelection} beats ${computerSelection}`;
-    
-        return result;
-        
+        let printResult = document.createElement('p');
+        printResult.textContent = result;
+        resultdiv.appendChild(printResult);
+        return
     }
     
  }
 
  function game(){
-    for (let rounds = count ; rounds<=20; rounds++){
-        if(playerWins == 3 || computerWins == 3){
-            console.log( 'Game is over' )
-        } else {
-        let message;
-        playerSelection = prompt(message);
-       console.log (playRound(playerSelection, computerSelection));
-       console.log(count)
+    computerSelection = getComputerChoice();
+     
+    (playRound(playerSelection, computerSelection));
+       
+       let playerwins = document.getElementById('playerwins')
+       let playerWinCount = document.createElement('p')
+       playerWinCount.textContent = `${playerWins} + ${playerSelection}`
+       playerwins.appendChild(playerWinCount)
+
+       let computerWinCount = document.createElement('p')
+       computerWinCount.textContent = `${computerWins} + ${computerSelection}`
+       computerwins.appendChild(computerWinCount)
+
+ if(playerWins == 3 ){
+    let printResult = document.createElement('p');
+        printResult.textContent = 'Game is Over, You have beaten the computer';
+        resultdiv.appendChild(printResult);
+       document.getElementById('buttons').style.display = "none";
+}
+
+if(computerWins == 3){
+    let printResult = document.createElement('p');
+        printResult.textContent = 'Game is Over, the computer has won this game, You are going to have to try harder';
+        resultdiv.appendChild(printResult);
+     document.getElementById('buttons').style.display = "none";
+}
        }
-    }
- }
+       
 
 
- game();
- console.log(playerWins);
- console.log(computerWins);
+
+ 
  
  
  

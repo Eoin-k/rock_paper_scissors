@@ -1,0 +1,95 @@
+:root {
+    --text-m: 1.8rem;
+    --text-l: 2rem;
+    --text-xl: 2.3rem;
+    --text-xxl: 2.6rem;
+    --root-font-size: 62.5%;
+    --space-xs: 1.896rem;
+    --space-s: 2.133rem;
+    --space-m: 2.4rem;
+    --space-l: 2.7rem;
+    --space-xl: 3.038rem;
+    --primary: #E56C70;
+    --secondary: #6C5879;
+    --base: #344F6F;
+    --btn-padding-block: 0.75em;
+  --btn-padding-inline: 1.5em;
+  --btn-min-width: 15rem;
+  --btn-line-height: 1;
+  --btn-font-weight: 400;
+  --btn-font-style: normal;
+  --btn-text-decoration: none;
+  --btn-text-decoration-hover: none;
+  --btn-letter-spacing: 0;
+  --btn-text-transform: none;
+  --btn-border-width: 0.25rem;
+  --btn-outline-border-width: 0.25rem;
+  --btn-border-style: solid;
+  --btn-border-radius: 0;
+  --btn-transition-duration: 0.3s;
+
+
+}
+
+html {
+    font-size: 62.5% !important;
+    scroll-behavior: smooth;
+}
+.container {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+   max-width: 1366px;
+    gap: var(--space-s);
+}
+
+.section    {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-inline: var(--space-l);
+}
+
+.block {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-m);
+}
+.row-container {
+flex-direction: row;
+}
+
+.btn-primary{
+padding-block: var(--btn-padding-inline);
+padding-inline: var(--btn-padding-inline);
+min-width: var(--btn-min-width);
+color: white;
+background-color: var(--primary);
+font-weight: var(--btn-font-weight);
+}
+
+.btn-secondary {
+    padding-block: var(--btn-padding-inline);
+    padding-inline: var(--btn-padding-inline);
+    min-width: var(--btn-min-width);
+    color: white;
+    background-color: var(--secondary);
+    font-weight: var(--btn-font-weight);
+}
+
+.btn-base {
+    padding-block: var(--btn-padding-inline);
+    padding-inline: var(--btn-padding-inline);
+    min-width: var(--btn-min-width);
+    color: white;
+    background-color: var(--base);
+    font-weight: var(--btn-font-weight);
+}
